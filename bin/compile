@@ -24,7 +24,7 @@ COPY_YARN_LOCK="$(cat "${ENV_DIR}/COPY_YARN_LOCK")"
         cp "${BUILD_DIR}/yarn.lock" "${BUILD_DIR}/${APP_BASE}"
     fi
     mv "${BUILD_DIR}/${APP_BASE}" "${STAGE}" &&
-    rm -rf "${BUILD_DIR}"/* &&
+    rm -rf "${BUILD_DIR:?}"/* &&
     mv "${STAGE}/$(basename "$APP_BASE")"/* "${BUILD_DIR}"
 )
 
