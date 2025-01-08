@@ -22,7 +22,7 @@ COPY_YARN_LOCK="$(cat "${ENV_DIR}/COPY_YARN_LOCK")"
 (
     if [ "${COPY_YARN_LOCK}" = "true" ]; then
         cp "${BUILD_DIR}/yarn.lock" "${BUILD_DIR}/${APP_BASE}"
-        cp "${BUILD_DIR}/yarnrc.yml" "${BUILD_DIR}/${APP_BASE}"
+        cp "${BUILD_DIR}/.yarnrc.yml" "${BUILD_DIR}/${APP_BASE}"
         cp -r "${BUILD_DIR}/.yarn" "${BUILD_DIR}/${APP_BASE}"
     fi
     mv "${BUILD_DIR}/${APP_BASE}" "${STAGE}" &&
